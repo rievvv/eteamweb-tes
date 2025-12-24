@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>E-Team Agency</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="nav-container">
+    <div class="logo">
+      <img src="LOGO E-TEAM (Transparant + Text).png" alt="E-Team" />
+    </div>
+
+    <nav class="nav-menu" id="navMenu">
+  <a href="index.html" class="active">Home</a>
+  <a href="topup.html">Top Up</a>
+  <a href="#">Daftar Talent</a>
+  <a href="#">Daftar Sub</a>
+  <a href="#">About Us</a>
+  <a class="login" href="#">Login</a>
+</nav>
+
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</header>
+
+<!-- SLIDER -->
+<section class="slider">
+  <button class="arrow left" id="prev">&#10094;</button>
+
+  <div class="slider-wrapper">
+    <div class="slide active"><img src="SB1.png"></div>
+    <div class="slide"><img src="SB2.png"></div>
+    <div class="slide"><img src="SB3.png"></div>
+  </div>
+
+  <button class="arrow right" id="next">&#10095;</button>
+
+  <div class="dots">
+    <span class="dot active" data-index="0"></span>
+    <span class="dot" data-index="1"></span>
+    <span class="dot" data-index="2"></span>
+  </div>
+</section>
+
+<!-- CONTENT -->
+<section class="content">
+  <h2>TITLE</h2>
+  <p>
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..."
+  </p>
+
+  <div class="image-grid">
+    <div class="img-box">IMAGE 1</div>
+    <div class="img-box">IMAGE 2</div>
+    <div class="img-box">IMAGE 3</div>
+    <div class="img-box">IMAGE 4</div>
+  </div>
+</section>
+
+
+<!-- OVERLAY NOTIFICATION -->
+<div id="overlayNotif" class="overlay">
+  <div class="overlay-box">
+    <button class="overlay-close" id="closeOverlay">✕</button>
+    <h2>Pengumuman</h2>
+    <p>
+      Selamat datang di E-Team Agency.  
+      Website kami sedang dalam tahap pengembangan.  
+      Untuk informasi lebih lanjut, silakan hubungi kami.
+    </p>
+    <small>Klik di mana saja untuk melanjutkan</small>
+  </div>
+</div>
+
+<!-- WHATSAPP FLOAT -->
+<div class="wa-container">
+  <button class="wa-button" id="waToggle">
+    <img src="Icon WhatsApp Biru.png" alt="WhatsApp">
+  </button>
+
+  <div class="wa-popup" id="waPopup">
+    <p class="wa-title">Hubungi Kami</p>
+
+    <a href="https://wa.me/628111111111?text=Halo%20kak" target="_blank">
+      Leader A
+    </a>
+
+    <a href="https://wa.me/628222222222?text=Halo%20kak" target="_blank">
+      Leader B
+    </a>
+
+    <a href="https://wa.me/628333333333?text=Halo%20kak" target="_blank">
+      Leader C
+    </a>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
