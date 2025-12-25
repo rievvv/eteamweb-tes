@@ -577,3 +577,165 @@ body.fade-out {
     transform: translateY(0);
   }
 }
+
+/* ===================== */
+/* POPUP SUKSES DAFTAR TALENT */
+/* ===================== */
+.success-popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.success-popup.show {
+  display: flex;
+}
+
+.success-box {
+  background: white;
+  padding: 30px;
+  border-radius: 18px;
+  text-align: center;
+  max-width: 90%;
+}
+
+.check-icon {
+  font-size: 48px;
+  color: #1e90ff;
+  margin-bottom: 14px;
+}
+
+/* ===================== */
+/* DAFTAR TALENT FORM */
+/* ===================== */
+
+.talent-section {
+  background: #5f89c9;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.talent-title {
+  color: #fff;
+  font-size: 32px;
+  margin-bottom: 40px;
+  letter-spacing: 1px;
+}
+
+.talent-form {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 22px;
+  text-align: left;
+}
+
+/* ===== SELECT (DROPDOWN BULAN AKTIF) ===== */
+#bulanAktif {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background-color: #fff;
+  background-image: url("data:image/svg+xml,%3Csvg width='14' height='10' viewBox='0 0 14 10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l6 6 6-6' stroke='%23666' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 24px center;
+  background-size: 14px;
+
+  padding-right: 60px; /* ruang panah */
+}
+
+.form-group label {
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.req {
+  color: red;
+}
+
+.talent-form input,
+.talent-form select {
+  width: 100%;
+  padding: 16px 18px;
+  border-radius: 999px;
+  border: none;
+  font-size: 15px;
+  outline: none;
+}
+
+.checkbox-group {
+  margin: 20px 0;
+  text-align: left;
+}
+
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+.submit-btn {
+  background: #ffd86b;
+  color: #000;
+  border: none;
+  padding: 16px 40px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.form-note {
+  margin-top: 20px;
+  color: #fff;
+  font-size: 14px;
+}
+/* ===== CHECKBOX ===== */
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.checkbox-item input {
+  width: 18px;
+  height: 18px;
+  accent-color: #FFD666; /* kuning E-Team */
+  cursor: pointer;
+}
+
+/* ===== ERROR TEXT ===== */
+.error-text {
+  display: none;
+  color: #FFD666;
+  font-size: 13px;
+  margin-top: 6px;
+}
+

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>E-Team Agency</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="nav-container">
+    <div class="logo">
+      <img src="LOGO E-TEAM (Transparant + Text).png" alt="E-Team" />
+    </div>
+
+    <nav class="nav-menu" id="navMenu">
+      <a href="index.html">Home</a>
+      <a href="topup.html">Top Up</a>
+      <a href="daftar-talent.html" class="active">Daftar Talent</a>
+      <a href="#">Daftar Sub</a>
+      <a href="#">About Us</a>
+      <a class="login" href="#">Login</a>
+    </nav>
+
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</header>
+
+<section class="talent-section">
+  <h1 class="talent-title">PENDAFTARAN TALENT</h1>
+
+  <form id="talentForm" class="talent-form">
+
+    <div class="form-group">
+      <label>Nama Sesuai KTP<span class="req">*</span></label>
+      <input id="nama" type="text" placeholder="ISI NAMA LENGKAPMU" required>
+    </div>
+
+    <div class="form-group">
+      <label>ID Mico<span class="req">*</span></label>
+      <input id="idMico" type="text" placeholder="ISI ID MICO MU" required>
+    </div>
+
+    <div class="form-group">
+      <label>Bulan Akan Aktif<span class="req">*</span></label>
+      <select id="bulanAktif" required>
+        <option value="">Pilih Bulan Aktif</option>
+        <option>Januari</option>
+        <option>Februari</option>
+        <option>Maret</option>
+        <option>April</option>
+        <option>Mei</option>
+        <option>Juni</option>
+        <option>Juli</option>
+        <option>Agustus</option>
+        <option>September</option>
+        <option>Oktober</option>
+        <option>November</option>
+        <option>Desember</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Nomor WhatsApp<span class="req">*</span></label>
+      <input id="whatsapp" type="text" placeholder="ISI DENGAN NOMOR WHATSAPP AKTIF MU" required>
+      <small id="waError" class="error-text">
+  Nomor WhatsApp harus diawali dengan angka 0
+</small>
+    </div>
+
+    <div class="form-group">
+      <label>Rekomendasi (Opsional)</label>
+      <input id="rekomendasi" type="text" placeholder="ISI NAMA YANG MEREKOMENDASIKAN MU KE E-TEAM">
+    </div>
+
+    <div class="checkbox-group">
+  <label class="checkbox-item">
+    <input id="hostAgency" type="checkbox">
+    <span>Pernah menjadi host agency lain di Mico?</span>
+  </label>
+
+  <label class="checkbox-item">
+    <input id="liveAplikasi" type="checkbox">
+    <span>Pernah live di aplikasi lain selain Mico?</span>
+  </label>
+</div>
+
+    <button id="submitTalent" type="submit" disabled class="submit-btn">
+      SUBMIT
+    </button>
+
+    <p class="form-note">
+      Pastikan nomor WhatsApp mu benar,<br>
+      kamu akan segera menerima konfirmasi lebih lanjut via WhatsApp
+    </p>
+
+  </form>
+</section>
+
+
+<script src="script.js"></script>
+<div id="successPopup" class="success-popup">
+  <div class="success-box">
+    <div class="check-icon">✔</div>
+    <p>
+      Selamat Kamu sudah berhasil mendaftar,<br>
+      tunggu sejenak Admin akan segera menghubungimu melalui WhatsApp
+    </p>
+  </div>
+</div>
+
+</body>
+</html>
