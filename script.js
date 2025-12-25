@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
   /* ===================== */
-  /* SLIDER (HANYA JIKA ADA) */
+  /* SLIDER (HOME ONLY) */
   /* ===================== */
   const sliderWrapper = document.querySelector(".slider-wrapper");
   const slides = document.querySelectorAll(".slide");
@@ -83,101 +83,47 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     overlay.addEventListener("click", closeOverlay);
+    overlayBox.addEventListener("click", (e) => e.stopPropagation());
+  }
 
-    overlayBox.addEventListener("click", (e) => {
+  /* ===================== */
+  /* HAMBURGER MENU (FINAL) */
+  /* ===================== */
+  const hamburger = document.getElementById("hamburger");
+  const navMenu = document.getElementById("navMenu");
+
+  if (hamburger && navMenu) {
+    hamburger.addEventListener("click", (e) => {
+      e.stopPropagation();
+      navMenu.classList.toggle("show");
+    });
+
+    document.addEventListener("click", () => {
+      navMenu.classList.remove("show");
+    });
+
+    navMenu.addEventListener("click", (e) => {
       e.stopPropagation();
     });
   }
 
   /* ===================== */
-  /* PAGE TRANSITION (NAVBAR) */
+  /* WHATSAPP FLOAT */
   /* ===================== */
-  const navLinks = document.querySelectorAll(".nav-menu a");
-
-  navLinks.forEach(link => {
-    const href = link.getAttribute("href");
-
-    if (!href || href === "#") return;
-
-    link.addEventListener("click", (e) => {
-      e.preventDefault();
-
-      document.body.classList.add("fade-out");
-
-      setTimeout(() => {
-        window.location.href = href;
-      }, 300);
-    });
-  });
-
-  /* ===================== */
-  /* TOP UP CARD (OPSIONAL) */
-  /* ===================== */
-  document.querySelectorAll(".topup-card").forEach(card => {
-    card.addEventListener("click", () => {
-      alert("Menu Top Up akan dibuka");
-    });
-  });
-
-  /* ===================== */
-  /* CTA RESELLER */
-  /* ===================== */
-  const resellerBtn = document.querySelector(".reseller-btn");
-  if (resellerBtn) {
-    resellerBtn.addEventListener("click", () => {
-      window.open(
-        "https://wa.me/628XXXXXXXXXX?text=Kak%20saya%20ingin%20daftar%20reseller",
-        "_blank"
-      );
-    });
-  }
-
-});
-
-/* ===================== */
-/* WHATSAPP FLOAT (ISOLATED) */
-/* ===================== */
-document.addEventListener("DOMContentLoaded", () => {
   const waToggle = document.getElementById("waToggle");
   const waPopup = document.getElementById("waPopup");
 
-  if (!waToggle || !waPopup) return;
+  if (waToggle && waPopup) {
+    waToggle.addEventListener("click", (e) => {
+      e.stopPropagation();
+      waPopup.classList.toggle("show");
+    });
 
-  waToggle.addEventListener("click", (e) => {
-    e.stopPropagation();
-    waPopup.classList.toggle("show");
-  });
+    document.addEventListener("click", () => {
+      waPopup.classList.remove("show");
+    });
 
-  // Klik di luar → tutup
-  document.addEventListener("click", () => {
-    waPopup.classList.remove("show");
-  });
+    waPopup.addEventListener("click", (e) => e.stopPropagation());
+  }
 
-  // Klik di popup → jangan tutup
-  waPopup.addEventListener("click", (e) => {
-    e.stopPropagation();
-  });
 });
-/* ===================== */
-/* HAMBURGER SLIDE MENU (FINAL & AMAN) */
-/* ===================== */
-const hamburger = document.getElementById("hamburger");
-const navMenu = document.getElementById("navMenu");
-const navBackdrop = document.getElementById("navBackdrop");
-
-if (hamburger && navMenu && navBackdrop) {
-
-  hamburger.addEventListener("click", (e) => {
-    e.stopPropagation();
-    navMenu.classList.toggle("show");
-    navBackdrop.classList.toggle("show");
-  });
-
-  // Klik backdrop → tutup menu
-  navBackdrop.addEventListener("click", () => {
-    navMenu.classList.remove("show");
-    navBackdrop.classList.remove("show");
-  });
-
-  // Klik di menu → biarkan klik jalan (JANGAN stopPropagation di sini)
-}
