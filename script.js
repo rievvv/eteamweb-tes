@@ -159,7 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 /* ===================== */
-/* HAMBURGER SLIDE MENU */
+/* HAMBURGER SLIDE MENU (FIXED) */
 /* ===================== */
 const hamburger = document.getElementById("hamburger");
 const navMenu = document.getElementById("navMenu");
@@ -173,12 +173,21 @@ if (hamburger && navMenu && navBackdrop) {
     navBackdrop.classList.toggle("show");
   });
 
+  // Klik backdrop → tutup menu
   navBackdrop.addEventListener("click", () => {
     navMenu.classList.remove("show");
     navBackdrop.classList.remove("show");
   });
 
+  // Klik DI MENU → jangan tutup
   navMenu.addEventListener("click", (e) => {
     e.stopPropagation();
   });
 }
+
+// Cegah klik menu diteruskan ke backdrop
+navMenu.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", (e) => {
+    e.stopPropagation();
+  });
+});
