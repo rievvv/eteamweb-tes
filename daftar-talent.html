@@ -46,7 +46,14 @@
 
     <div class="form-group">
       <label>ID Mico<span class="req">*</span></label>
-      <input id="idMico" type="text" placeholder="ISI ID MICO MU" required>
+      <input
+  id="idMico"
+  type="text"
+  inputmode="numeric"
+  pattern="[0-9]*"
+  placeholder="ISI ID MICO MU"
+  required
+>
     </div>
 
     <div class="form-group">
@@ -70,7 +77,14 @@
 
     <div class="form-group">
       <label>Nomor WhatsApp<span class="req">*</span></label>
-      <input id="whatsapp" type="text" placeholder="ISI DENGAN NOMOR WHATSAPP AKTIF MU" required>
+      <input
+  id="whatsapp"
+  type="text"
+  inputmode="numeric"
+  pattern="[0-9]*"
+  placeholder="ISI DENGAN NOMOR WHATSAPP AKTIF MU"
+  required
+>
       <small id="waError" class="error-text">
   Nomor WhatsApp harus diawali dengan angka 0
 </small>
