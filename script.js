@@ -129,105 +129,92 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /* ===================== */
-/* VALIDASI FORM DAFTAR TALENT */
+/* DAFTAR TALENT - FINAL CLEAN */
 /* ===================== */
+document.addEventListener("DOMContentLoaded", () => {
 
-const form = document.getElementById("talentForm");
-
-if (form) {
+  const form = document.getElementById("talentForm");
+  if (!form) return;
 
   const nama = document.getElementById("nama");
   const idMico = document.getElementById("idMico");
   const bulan = document.getElementById("bulanAktif");
   const whatsapp = document.getElementById("whatsapp");
   const submitBtn = document.getElementById("submitTalent");
+  const waError = document.getElementById("waError");
+  const successPopup = document.getElementById("successPopup");
 
   function onlyNumber(input) {
     input.value = input.value.replace(/[^0-9]/g, "");
   }
+  // =====================
+// ID MICO: ANGKA ONLY (REAL BLOCK)
+// =====================
 
-  idMico.addEventListener("input", () => onlyNumber(idMico));
-  whatsapp.addEventListener("input", () => onlyNumber(whatsapp));
+// blok ketik huruf
+idMico.addEventListener("keypress", (e) => {
+  if (!/[0-9]/.test(e.key)) {
+    e.preventDefault();
+  }
+});
+
+// blok paste non-angka
+idMico.addEventListener("paste", (e) => {
+  e.preventDefault();
+  const text = (e.clipboardData || window.clipboardData).getData("text");
+  if (/^\d+$/.test(text)) {
+    idMico.value += text;
+  }
+});
+
+  function validateWhatsapp() {
+    onlyNumber(whatsapp);
+
+    if (!whatsapp.value.startsWith("0")) {
+      waError.style.display = "block";
+      return false;
+    }
+
+    waError.style.display = "none";
+    return true;
+  }
 
   function validateForm() {
-    let valid = true;
-
-    if (!nama.value.trim()) valid = false;
-    if (!idMico.value.trim()) valid = false;
-    if (!bulan.value) valid = false;
-    if (!whatsapp.value.trim()) valid = false;
-
-    if (whatsapp.value && !whatsapp.value.startsWith("0")) {
-      whatsapp.setCustomValidity("Nomor WhatsApp harus diawali angka 0");
-      valid = false;
-    } else {
-      whatsapp.setCustomValidity("");
-    }
+    const valid =
+      nama.value.trim() &&
+      idMico.value.trim() &&
+      bulan.value &&
+      validateWhatsapp();
 
     submitBtn.disabled = !valid;
     return valid;
   }
 
-  form.addEventListener("input", validateForm);
+  // realtime validation
+  nama.addEventListener("input", validateForm);
+  idMico.addEventListener("input", validateForm);
+  whatsapp.addEventListener("input", validateForm);
+  bulan.addEventListener("change", validateForm);
 
+  // SUBMIT
   form.addEventListener("submit", (e) => {
     e.preventDefault();
+    if (!validateForm()) return;
 
-    if (!validateForm()) {
-      alert("Mohon lengkapi data dengan benar");
-      return;
-    }
+    successPopup.classList.add("show");
 
-    showSuccessPopup();
+    const timer = setTimeout(() => {
+      window.location.href = "index.html";
+    }, 2500);
+
+    successPopup.addEventListener(
+      "click",
+      () => {
+        clearTimeout(timer);
+        window.location.href = "index.html";
+      },
+      { once: true }
+    );
   });
-}
-form.addEventListener("submit", (e) => {
-  if (!validateWhatsapp()) {
-    e.preventDefault();
-  }
+
 });
-
-
-/* ===================== */
-/* VALIDASI WHATSAPP */
-/* ===================== */
-const whatsappInput = document.getElementById("whatsapp");
-const waError = document.getElementById("waError");
-const submitBtn = document.getElementById("submitTalent");
-
-function validateWhatsapp() {
-  const value = whatsappInput.value.trim();
-
-  // hanya angka
-  whatsappInput.value = value.replace(/[^0-9]/g, "");
-
-  if (value === "") {
-    waError.style.display = "none";
-    submitBtn.disabled = true;
-    return false;
-  }
-
-  if (!value.startsWith("0")) {
-    waError.style.display = "block";
-    submitBtn.disabled = true;
-    return false;
-  }
-
-  waError.style.display = "none";
-  return true;
-}
-
-if (whatsappInput) {
-  whatsappInput.addEventListener("input", () => {
-    validateWhatsapp();
-  });
-}
-
-
-/* ===================== */
-/* POPUP SUKSES */
-/* ===================== */
-function showSuccessPopup() {
-  const popup = document.getElementById("successPopup");
-  popup.classList.add("show");
-}
