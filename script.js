@@ -159,23 +159,25 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 /* ===================== */
-/* HAMBURGER MENU */
+/* HAMBURGER SLIDE MENU */
 /* ===================== */
 const hamburger = document.getElementById("hamburger");
 const navMenu = document.getElementById("navMenu");
+const navBackdrop = document.getElementById("navBackdrop");
 
-if (hamburger && navMenu) {
+if (hamburger && navMenu && navBackdrop) {
+
   hamburger.addEventListener("click", (e) => {
     e.stopPropagation();
     navMenu.classList.toggle("show");
+    navBackdrop.classList.toggle("show");
   });
 
-  // Klik di luar menu → tutup
-  document.addEventListener("click", () => {
+  navBackdrop.addEventListener("click", () => {
     navMenu.classList.remove("show");
+    navBackdrop.classList.remove("show");
   });
 
-  // Klik di dalam menu → jangan tutup
   navMenu.addEventListener("click", (e) => {
     e.stopPropagation();
   });
