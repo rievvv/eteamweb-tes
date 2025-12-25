@@ -159,7 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 /* ===================== */
-/* HAMBURGER SLIDE MENU (FIXED) */
+/* HAMBURGER SLIDE MENU (FINAL & AMAN) */
 /* ===================== */
 const hamburger = document.getElementById("hamburger");
 const navMenu = document.getElementById("navMenu");
@@ -179,15 +179,5 @@ if (hamburger && navMenu && navBackdrop) {
     navBackdrop.classList.remove("show");
   });
 
-  // Klik DI MENU → jangan tutup
-  navMenu.addEventListener("click", (e) => {
-    e.stopPropagation();
-  });
+  // Klik di menu → biarkan klik jalan (JANGAN stopPropagation di sini)
 }
-
-// Cegah klik menu diteruskan ke backdrop
-navMenu.querySelectorAll("a").forEach(link => {
-  link.addEventListener("click", (e) => {
-    e.stopPropagation();
-  });
-});
