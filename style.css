@@ -452,21 +452,26 @@ body.fade-out {
 }
 
 /* RESPONSIVE */
-@media (max-width: 1024px) {
+@media (max-width: 600px) {
+
   .topup-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .topup-img {
+    border-radius: 20px;
+    font-size: 12px;
+    padding: 10px;
+  }
+
+  .topup-card p {
+    font-size: 12px;
+    margin-top: 8px;
   }
 }
 
-@media (max-width: 600px) {
-  .topup-title {
-    font-size: 28px;
-  }
 
-  .topup-grid {
-    grid-template-columns: 1fr;
-  }
-}
 /* ===================== */
 /* WHATSAPP FLOAT */
 /* ===================== */
