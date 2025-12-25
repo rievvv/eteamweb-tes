@@ -314,15 +314,12 @@ body.fade-out {
     right: 0;
     height: 100vh;
     width: 260px;
-
     background: #FFD66B;
     flex-direction: column;
     padding: 80px 20px;
     gap: 18px;
-
     transform: translateX(100%);
     transition: transform 0.35s ease;
-
     z-index: 3000;
   }
 
@@ -334,26 +331,27 @@ body.fade-out {
     display: flex;
     z-index: 3100;
   }
-}
 
   .image-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
   .nav-backdrop {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.4);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-  z-index: 2500;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 2500;
+  }
+
+  .nav-backdrop.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
 }
 
-.nav-backdrop.show {
-  opacity: 1;
-  pointer-events: auto;
-}
 
 
 /* ===================== */
